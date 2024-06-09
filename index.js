@@ -30,18 +30,27 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'gitHub',
+        message: 'What is your GitHub username?'
+    },
+    {
+        type: 'input',
         name: 'license',
         message: 'Would you like to include a license?'
     }
 ];
 
 
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) {
+    fs.writeFile('gReadMe.md', data, (err) => {
+        err ? console.log(err) : console.log('ReadMe Generated!')
+    })
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+
+}
 
 // Function call to initialize app
 init();
