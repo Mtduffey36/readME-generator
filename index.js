@@ -4,36 +4,38 @@ const inquirer = require("inquirer");
 
 const questions = [
     {
-      type: "input",
-      message: "What is the name of your application",
-      name: "appName",
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of this application?',
     },
     {
-      type: "input",
-      message: "What does your application do?",
-      name: "description",
+        type: 'input',
+        name: 'description',
+        message: 'What does this application do?'
     },
     {
-      type: "input",
-      message: "How does a user install your app?",
-      name: "installation",
+        type: 'input',
+        name: 'install',
+        message: 'How is this application installed?'
     },
     {
-      type: "input",
-      message: "Can you explain how to use the app?",
-      name: "usage",
+        type: 'input',
+        name: 'howTo',
+        message: 'How is this application used?'
     },
     {
-      type: "input",
-      message: "Anything in the app you'd like to give credit for?",
-      name: "credits",
+        type: 'input',
+        name: 'collab',
+        message: 'Where there any collaborators or credit to be assigned?'
     },
     {
-      type: "confirm",
-      message: "Would you like to include an MIT license?",
-      name: "license",
-    },
-  ];
+        type: 'input',
+        name: 'license',
+        message: 'Would you like to include a license?'
+    }
+];
+
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
