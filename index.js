@@ -1,5 +1,5 @@
 const fs = require("fs");
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 
 
 const questions = [
@@ -34,7 +34,7 @@ const questions = [
         message: 'What is your GitHub username?'
     },
     {
-        type: 'input',
+        type: 'confirm',
         name: 'license',
         message: 'Would you like to include a license?'
     }
@@ -47,10 +47,36 @@ function writeToFile(data) {
     })
 }
 
-// TODO: Create a function to initialize app
 function init() {
+    inquirer.prompt(questions).then((response) => {
+      if (response.license === true) {
+        response.license =
+          "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+      }
+      const createMarkdown = `# ${response.appName}
+        
+  # Description
+  ${response.description}
+  # Table of Contents
+  1. [Installation](#install)
+  2. [Usage](#howTo)
+  3. [Credits](#collab)
+  4. [License](#license)
+  
+  ## Installation <a name="intall"></a>
+  ${response.install}
+  ## Usage <a name="howTo"></a>        
+  ${response.howTo}
+  ## Credits <a name="collab"></a>
+  ${response.collab}
+  ## License <a name="license"></a>
+  ${response.license}`;
+  
+      fs.writeFile("generatedREADME.md", createMarkdown, (err) => {
+        (err) ? console.log(err) : console.log('The Readme has been Created')
+      });
+    });
+  }
 
-}
+  init();
 
-// Function call to initialize app
-init();
