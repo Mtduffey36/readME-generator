@@ -2,81 +2,63 @@ const fs = require("fs");
 const inquirer = require('inquirer');
 
 
+
 const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'What is the title of this application?',
+        message:'What is the Title of this project?'
     },
     {
         type: 'input',
         name: 'description',
-        message: 'What does this application do?'
+        message: 'What is the purpose of this project?'
     },
     {
         type: 'input',
-        name: 'install',
-        message: 'How is this application installed?'
+        name: 'installation',
+        message: 'How do you install this application?'
     },
     {
         type: 'input',
-        name: 'howTo',
-        message: 'How is this application used?'
+        name: 'usage',
+        message: 'How do you use this project?'
     },
     {
         type: 'input',
-        name: 'collab',
-        message: 'Where there any collaborators or credit to be assigned?'
+        name: 'contribution',
+        message: 'Would you like to assign any credit to anyone for this project?'
     },
     {
         type: 'input',
-        name: 'gitHub',
-        message: 'What is your GitHub username?'
+        name: 'test',
+        message: 'How do you test this application?'
     },
     {
         type: 'confirm',
         name: 'license',
-        message: 'Would you like to include a license?'
-    }
+        message: 'Would you like to assign an MIT license?'
+    },
 ];
 
+inquirer.prompt(questions).then((answers => {
+    console.log(`Title: ${answers.title}`);
+    console.log(`Description: ${answers.description}`);
+    console.log(`Installation: ${answers.installation}`);
+    console.log(`Usage: ${answers.usage}`);
+    console.log(`Contribution: ${answers.contribution}`);
+    console.log(`Testing: ${answers.test}`);
+    console.log(`License: ${answers.license}`)
+}));
 
-function writeToFile(data) {
-    fs.writeFile('gReadMe.md', data, (err) => {
-        err ? console.log(err) : console.log('ReadMe Generated!')
-    })
-}
 
-function init() {
-    inquirer.prompt(questions).then((response) => {
-      if (response.license === true) {
-        response.license =
-          "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-      }
-      const createMarkdown = `# ${response.appName}
-        
-  # Description
-  ${response.description}
-  # Table of Contents
-  1. [Installation](#install)
-  2. [Usage](#howTo)
-  3. [Credits](#collab)
-  4. [License](#license)
-  
-  ## Installation <a name="intall"></a>
-  ${response.install}
-  ## Usage <a name="howTo"></a>        
-  ${response.howTo}
-  ## Credits <a name="collab"></a>
-  ${response.collab}
-  ## License <a name="license"></a>
-  ${response.license}`;
-  
-      fs.writeFile("generatedREADME.md", createMarkdown, (err) => {
-        (err) ? console.log(err) : console.log('The Readme has been Created')
-      });
-    });
-  }
 
-  init();
 
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {}
+
+// TODO: Create a function to initialize app
+function init() {}
+
+// Function call to initialize app
+init();

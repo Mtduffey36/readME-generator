@@ -1,7 +1,7 @@
 # undefined
         
   # Description
-  asd
+  that
   # Table of Contents
   1. [Installation](#install)
   2. [Usage](#howTo)
@@ -9,10 +9,10 @@
   4. [License](#license)
   
   ## Installation <a name="intall"></a>
-  asd
+  just to do it
   ## Usage <a name="howTo"></a>        
-  asd
+  this is how
   ## Credits <a name="collab"></a>
-  asd
+  no
   ## License <a name="license"></a>
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  false
