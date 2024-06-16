@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require('inquirer');
+const generateMarkdown = require("./utils/generateMarkdown");
 
 
 
@@ -41,24 +42,18 @@ const questions = [
     },
 ];
 
-inquirer.prompt(questions).then((answers => {
-    console.log(`Title: ${answers.title}`);
-    console.log(`Description: ${answers.description}`);
-    console.log(`Installation: ${answers.installation}`);
-    console.log(`Usage: ${answers.usage}`);
-    console.log(`Contribution: ${answers.contribution}`);
-    console.log(`Testing: ${answers.test}`);
-    console.log(`License: ${answers.license}`)
-}));
 
+function writeToFile(filename, data) {
+    fs.writeFile(filename, data, (err) => {
+        err ? console.log(err) : console.log('ReadMe Generated!')
+    })
+}
 
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
+const init = () => {
+    inquirer.prompt(questions).then((response) => {
+        const markdown = generateMarkdown(response)
+        writeToFile('generatedReadMe.md', markdown)
+        console.log('ReadMe has been generated!');
+    });
+}
 init();
