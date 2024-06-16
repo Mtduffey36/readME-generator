@@ -1,8 +1,6 @@
 const fs = require("fs");
 const inquirer = require('inquirer');
-const generateMarkdown = require("./utils/generateMarkdown");
-
-
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 const questions = [
     {
@@ -42,7 +40,6 @@ const questions = [
     },
 ];
 
-
 function writeToFile(filename, data) {
     fs.writeFile(filename, data, (err) => {
         err ? console.log(err) : console.log('ReadMe Generated!')
@@ -53,7 +50,6 @@ const init = () => {
     inquirer.prompt(questions).then((response) => {
         const markdown = generateMarkdown(response)
         writeToFile('generatedReadMe.md', markdown)
-        console.log('ReadMe has been generated!');
     });
 }
 init();
