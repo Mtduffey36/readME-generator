@@ -1,11 +1,11 @@
 
   
-  # asd
+  # ReadMe Generator
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
   # Description
-  asd
+  The purpose of this application is to run a program with a series of questions that will generate a ReadMe.md file for the user
 
   ## Table of Contents
   1. [Installation](#installation)
@@ -15,19 +15,19 @@
   5. [License](#license)
 
   ## Installation 
-  asd
+  You will need node.js installed first off and after that you will need to install Inquirer version 8.2.4 using nmp i inquirer@8.2.4
   
   ## Usage 
-  asd
+  Watch the video in main readme for a demo
 
   ## Contributing 
-  asd
+  no
 
   ## License 
 
   MIT: https://opensource.org/license/MIT
 
   ## Test
-  asd
+  yes
   
   

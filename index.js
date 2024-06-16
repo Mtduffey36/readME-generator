@@ -29,11 +29,6 @@ const questions = [
         message: 'Would you like to assign any credit to anyone for this project?'
     },
     {
-        type: 'input',
-        name: 'test',
-        message: 'How do you test this application?'
-    },
-    {
         type: 'confirm',
         name: 'license',
         message: 'Would you like to assign an MIT license?'
